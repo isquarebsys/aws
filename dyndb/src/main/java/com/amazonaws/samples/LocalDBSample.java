@@ -78,7 +78,7 @@ public class LocalDBSample {
         }
 //        dynamoDB = AmazonDynamoDBClientBuilder.standard()
 //            .withCredentials(credentialsProvider)
-//            .withRegion("us-west-2")
+//            .withRegion("ap-south-1")
 //            .build();
         
         dynamoDB = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
