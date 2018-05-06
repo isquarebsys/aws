@@ -32,7 +32,7 @@ import com.amazonaws.services.dynamodbv2.util.TableUtils;
  * This sample demonstrates how to perform a few simple operations with the
  * Amazon DynamoDB service.
  */
-public class AmazonDynamoDBSample {
+public class LocalDBSample {
 
     /*
      * Before running the code:
