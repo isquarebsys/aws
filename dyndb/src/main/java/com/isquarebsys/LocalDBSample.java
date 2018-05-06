@@ -1,4 +1,4 @@
-package com.amazonaws.samples;
+package com.isquarebsys;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +32,7 @@ import com.amazonaws.services.dynamodbv2.util.TableUtils;
  * This sample demonstrates how to perform a few simple operations with the
  * Amazon DynamoDB service.
  */
-public class CloudTableInMumbai {
+public class LocalDBSample {
 
     /*
      * Before running the code:
@@ -76,13 +76,13 @@ public class CloudTableInMumbai {
                     "location (C:\\Users\\user\\.aws\\credentials), and is in valid format.",
                     e);
         }
-        dynamoDB = AmazonDynamoDBClientBuilder.standard()
-            .withCredentials(credentialsProvider)
-            .withRegion("ap-south-1")
-            .build();
+//        dynamoDB = AmazonDynamoDBClientBuilder.standard()
+//            .withCredentials(credentialsProvider)
+//            .withRegion("ap-south-1")
+//            .build();
         
-//        dynamoDB = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-//        		new EndpointConfiguration("http://localhost:8000", "ap-south-1")).build();
+        dynamoDB = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+        		new EndpointConfiguration("http://localhost:8000", "ap-south-1")).build();
     }
 
     public static void main(String[] args) throws Exception {
