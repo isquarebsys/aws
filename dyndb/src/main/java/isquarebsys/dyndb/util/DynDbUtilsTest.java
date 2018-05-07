@@ -17,15 +17,18 @@ public class DynDbUtilsTest {
 		DynDbUtils dbUtil=new DynDbUtils();
 		System.out.println(dbUtil.createTable(tableName, "id"));
 		dbUtil.describeTable(tableName);
-		ScanResult scanResult=dbUtil.scanResult(tableName);
-		System.out.println(scanResult);
 		
 		Map<String, AttributeValue> item = new HashMap<String, AttributeValue>();
-//		item.put("id",new AttributeValue().withN("1"));
+		// id is a hash key as well as attribute. See createTable method. So id has to be passed
+		item.put("id",new AttributeValue("1"));
         item.put("name", new AttributeValue("Vijay"));
         item.put("year", new AttributeValue().withN("1976"));
         item.put("rating", new AttributeValue("1"));
         dbUtil.addItem(tableName, item);
+
+		ScanResult scanResult=dbUtil.scanResult(tableName);
+		System.out.println(scanResult);
+
 	}
 
 }
