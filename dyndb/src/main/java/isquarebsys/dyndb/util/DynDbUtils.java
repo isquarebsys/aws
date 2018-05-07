@@ -1,6 +1,7 @@
 package isquarebsys.dyndb.util;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -16,6 +17,8 @@ import com.amazonaws.services.dynamodbv2.model.DescribeTableRequest;
 import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
 import com.amazonaws.services.dynamodbv2.model.KeyType;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
+import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
+import com.amazonaws.services.dynamodbv2.model.PutItemResult;
 import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
@@ -102,5 +105,11 @@ public class DynDbUtils {
 		ScanRequest scanRequest = new ScanRequest(tableName).withScanFilter(scanFilter);
 		ScanResult scanResult = dynamoDB.scan(scanRequest);
 		return scanResult;
+	}
+	
+	public void addItem(String tableName,Map<String, AttributeValue> item) {
+		PutItemRequest putItemRequest = new PutItemRequest(tableName, item);
+        PutItemResult putItemResult = dynamoDB.putItem(putItemRequest);
+        System.out.println("Result: " + putItemResult);
 	}
 }
